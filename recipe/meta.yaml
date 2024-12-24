@@ -6,30 +6,32 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
   sha256: 2ee5340523aa7635ca568b9d8029c7738d05f9ea550fc89d4054b4cb50f34e7f
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   build:
     # Pure python
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - pip
     - setuptools
     - numpy >=1.6
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - numpy >=1.6
     - scipy >=0.9
     - networkx >=1.9
     - matplotlib-base >=1.5
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - skfuzzy
     - skfuzzy.control

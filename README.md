@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/scikit-fuzzy-fe
 
 Home: http://github.com/scikit-fuzzy/scikit-fuzzy
 
-Package license: BSD
+Package license: BSD-3-Clause
 
 Summary: Fuzzy logic toolbox for Python.
 
